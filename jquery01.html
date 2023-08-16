@@ -7,57 +7,60 @@
     <script src="code.jquery.com_jquery-1.10.0.js"></script>
     <!-- <script src="https://code.jquery.com/jquery-1.10.0.js"></script> -->
     <script>
-        $(document).ready(function () {   //문서가 모두 로딩되기를 기다렸다가
-            $("#kim").text("김기태");
-        });
-        $(document).ready(function () {
-            ani();
-        });
-        function ani() {
-            $("#park").html("<span style='color:red'>천사 박진권</span>");
-        }
+    $(document).ready(function(){   //문서가 모두 로딩되기를 기다렸다가
+        $("#kim").text("김기태");
+    });   
+    $(document).ready(function(){
+        ani();
+    });
+    function ani(){
+        $("#park").html("<span style='color:red'>천사 박진권</span>");
+    }
     </script>
 </head>
-
 <body>
     <h2 id="kim"></h2>
     <h2 id="lee"></h2>
     <h2 id="park"></h2>
     <div id="menu">
-        <ul class="lst">
-            <li>아이템1</li>
-            <li>아이템2</li>
-            <li>아이템3</li>
-            <li>아이템4</li>
-            <li>아이템5</li>
-        </ul>
+		<ul class="lst">
+			<li>아이템1</li>
+			<li>아이템2</li>
+			<li>아이템3</li>
+			<li>아이템4</li>
+			<li>아이템5</li>
+		</ul>
         <button id="btn1">요소 추가</button>
-    </div>
-    <script>
-        $(function() {   //곧 바로 실행
-            $("#lee").text("천재 이소윤");
+	</div>
+    <script>    
+        $(function(){   //곧 바로 실행
+             $("#lee").text("천재 이소윤");
         });
-    </script>
+        </script>
     <script>
-        $(function() {
-            $(".lst li").click(function(){
-                alert($(this).text());
-            });
-            var sw = true;
-            $("#btn1").click(function(){
-                if (sw) {
-                    $("#park").text("악당 박진권")
-                } else {
-                    $("#park").html("<span style='color:red'>천사 박진권</span>");
-                }
-                sw = !sw;
-                console.log(sw);
-                var len = $(".lst li").length + 1;
-                $(".lst").append("<li>아이템"+len+"</li>");
-                $(".lst li").css("color", "black");
-                $(".lst li:last-child").css("color", "blue");
-            }); 
+    $(function(){
+        $(".lst li").click(function(){
+            alert($(this).text());
         });
+        var sw=true;
+        $("#btn1").click(function(){
+            if(sw){
+                $("#park").text("악당인 것 같은 박진권");
+            } else {
+                $("#park").html("<span style='color:red'>천사같은 박진권</span>"); 
+            }
+            sw=!sw;
+            console.log(sw);
+            var len = $(".lst li").length + 1;
+            $(".lst").append("<li>아이템"+len+"</li>");
+            $(".lst li").css("color","black");
+            $(".lst li:last-child").css("color","blue");
+        });
+    });    
+        //jQuery 기본 문법
+        //$("선택자").메소드();
+        //$(객체).속성;
+        //$() 안에는 객체/변수/선택자를 입력하고, .뒤에는 메소드나 속성을 기재함.
     </script>
 </body>
 </html>

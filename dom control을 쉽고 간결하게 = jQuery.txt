@@ -1,0 +1,36 @@
+dom control을 쉽고 간결하게 => jQuery
+ajax(비동기처리방식)를 쉽게 => jQuery
+	<div id="menu">
+		<ul class="lst">
+			<li>아이템1</li>
+			<li>아이템2</li>
+			<li>아이템3</li>
+			<li>아이템4</li>
+			<li>아이템5</li>
+		</ul>
+	</div>
+
+	<script>
+	var menu = document.getElementById("menu");
+	var lst = menu.getElementByClassname("lst");
+	var item = lst[0].getElementByTagname("li");
+	item.addEventListener("click", function(){
+		alert(this.innerText);
+	});	
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#menu .lst li").click(function(){
+			alert($(this).text());
+		});
+	});
+	</script>
+
+	sync(동기) : 한 번에 화면이 같이 로딩되는 것.
+	async(비동기) : 필요한 부분만 화면이 변화되는 것.
+
+	아이디 중복 검사 => 아이디 입력 화면에 아이디를 입력하면, 동시에 아이디가
+	사용가능한 아이디인지 아니면, 중복된 아이디인지 같은 화면에 출력을 하고 싶다.
+	
+
+

@@ -1,0 +1,34 @@
+activation.jar
+javax.mail-api-1.5.5.jar
+javax.mail-1.5.5.jar
+
+SHA256 / 암호화(encrypt)만 가능
+AES256 / 암호화(encrypt)와 복호화(decrypt)가 가능
+
+암호화 패턴 : Base64, MD5, SHA256, HEX ~~~~
+
+1234
+
+A1B2C3D4 => AXBXCXDX
+
+C3D4A1B2 => CXDXAXBX
+
+23340112
+
+
+811225-1287121
+2
+6+2+2+4+4+0=18%11=7
+
+
+
+
+
+
+
+
+
+
+
+
+

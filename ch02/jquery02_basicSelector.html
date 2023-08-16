@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 선택자</title>
+    <script src="jquery-1.12.4.js"></script>
+    <style>
+    .highlight { font-weight:900; }
+    </style>
+</head>
+<body>
+    <div id="con">
+        <ul class="lst">
+            <li><a href="https://jquery.com">텍스트1</a></li>
+            <li><a href="index.html">텍스트2</a></li>
+            <li><a>텍스트3</a></li>
+        </ul>
+    </div>
+    <br>
+    <button type="button" id="btn1">버튼1</button>
+    <br>
+    <script>
+    $(function(){
+        //css("속성","값") - 해당 요소에 인라인 방식으로 스타일 부여
+        //jQuery 선택자 연습
+        $("*").css("margin","0px").css("padding","0px");//전체 선택자 - maring:0, padding:0
+        //메소드체이닝(Method Chaining)
+
+        $("a").css("text-decoration","none").css("color","deeppink").addClass("highlight"); //a 요소에 밑줄을 제거하고, 글자색을 딥핑크로하고, highlight 클래스를 추가하라
+        //아이디 선택자 - 아이디가 con인 요소의 상단 마진을 30px로 하고, 패딩은 20px로 하여라
+        //속성열거법(property Enumeration)
+        $("#con").css({"margin-top":"30px","padding":"20px"});
+
+        //클래스 선택자 - 클래스가 lst인 요소의 목록기호를 없애시오.
+        $(".lst").css("list-style","none");
+
+        //속성선택자 - a 요소의 href 속성이 존재하면, 글자색은 gold로 하시오.
+        $("a[href]").css("color","gold");
+
+        //속성선택자2 - a 요소에 href 속성이 https가 포함된 요소를 선택하여 패딩을 15px로 지정
+        $("a[href*='https']").css("padding","15px");
+
+        //속성선택자3 - a 요소에 href 속성이 .html로 끝나는 요소를 선택하여 배경색을 딥스카이블루로 하여라
+        $("a[href$='.html']").css("backgroundColor","deepskyblue");
+
+        //속성 선택자
+        //속성 존재 [속성]
+        //속성 일치 [속성='값']
+        //속성 불일치 [속성!='값']
+        //포함하는 문자열 : [속성*='문자열'] 
+        //속성 접미사 : [속성$='접미사'] [속성~='접미사']
+        //속성 접두사 : [속성|='접두사'], [속성^='접두사']
+
+        //순서 위치 선택자
+        //첫 번째 요소 : :first-child, :first-of-type, :eq(0), :nth-child(1), :nth-of-type(1), :first
+        //특정 번째 요소  :nth-child(n번째), :nth-of-type(n번째), :eq(인덱스)
+        //마지막 요소   :last-chlid, :last-of-type, :last
+        //:even  짝수 번째 요소
+        //:odd  홀수 번째 요소 
+        //:empty  내용이 없는 요소 선택
+        //:only-of-type, :only-child  내부 요소가 혼자인 경우 선택
+        //범위 요소   :lt(인덱스), :gt(인덱스)
+
+        //가상 요소 선택자
+        //:before : 특정 요소의 앞 부분 선택
+        //:after : 특정 요소의 뒤 부분 선택
+        //:checked : 체크박스나 라디오 버튼이 체크된 경우 선택
+        //:animated : 애니메이션이 동작 중인 요소 선택
+        //:focus : 현재 커서가 위치한 요소 선택
+        //:enabled : 사용 가능한 폼 요소 선택
+        //:disabled : 사용이 불가능한 요소 선택
+        //:selected : 셀렉트 된 요소 선택
+        //:readonly : 읽기 전용이 적용된 요소 선택
+        //:required : 필수 요소로 적용된 요소 선택
+        //:visible : 화면에 보여지는 요소 선택
+
+        // 폼 요소(type) 선택자
+        //:button : 버튼 요소 선택  
+        //:text : 텍스트 요소 선택
+        //:password : 패스워드 요소 선택
+        //:checkbox : 체크 박스 요소 선택
+        //:radio : 라디오 버튼 요소 선택
+        //:file  : 파일 요소 선택
+        //:hidden : 히든 요소 선택
+        //:submit : 서브밋 요소 선택
+        //:reset : 리셋 요소 선택
+        //:input : 입력 요소 선택
+
+        
+    });    
+    </script>
+</body>
+</html>

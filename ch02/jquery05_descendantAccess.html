@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 05 - 후손 요소와 자식 요소2</title>
+    <script src="./jquery-1.12.4.js"></script> 
+    <style>
+    .imglist li img { display:block; width:100px; height: auto; }    
+    </style> 
+</head>
+<body>
+    <section class="container">
+        <h1>후손과 자식 요소의 접근 제어</h1>
+        <p>
+            <em> one  </em>      <em> two  </em>   <span> <em> three </em> </span>
+         </p>
+        <div>
+            <em> <ins>four</ins> </em>      <span> <em> <ins>five</ins>  </em> </span>       <em><ins>six</ins></em> 
+        </div>
+    </section><br><hr><br>
+    <div>    
+        <span> ancestor descendant로 검색된 엘리먼트 : </span><span class="result1"></span>
+     </div>
+     <div>    
+        <span> parent &gt; child로 검색된 엘리먼트 : </span><span class="result2"></span>
+     </div>
+     <hr>
+     
+    
+     <script>
+     $(function(){
+        //클래스가 result1인 곳에 p의 후손 요소인 em의 text를 출력하시오.
+        //$(컬렉션).each(function(){
+            //반복수행이필요한문장
+        //});
+        var txt = "";
+        $("p em").each(function(){
+            txt += $(this).text();
+        });
+        $(".result1").text(txt);
+
+        //클래스가 result2인 곳에 div의 자식 요소인 em의 text를 출력하시오.
+        txt = "";
+        $("div > em").each(function(){
+            txt += $(this).text();
+        });
+        $(".result2").text(txt);
+     });   
+     </script>
+     <button type="button" id="btn1">이미지 추가</button>
+     <figure class="vs">
+        <ul class="imglist">
+        </ul>
+     </figure>
+     <script>
+     $(function(){
+        $("#btn1").click(function(){
+            for(var i=1;i<6;i++){
+                $(".imglist").append("<li><img src='../im"+i+".jpg'></li>");
+            }
+        });
+     });   
+     </script>
+</body>
+</html>
