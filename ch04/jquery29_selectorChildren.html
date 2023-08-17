@@ -20,7 +20,13 @@
         //div 요소에 아래 테두리선 3px solid red를 적용하고, 그 자식요소 중에서 span 요소의 글자크기를 3배 크게 적용
         //div 요소에 배경색 핑크로 하고, 그 자식요소 중에서 .sel 인 요소의 글자색을 빨강색으로 설정
         //아이디가 btn2인 버튼을 누르면 div의 내용 중에서 span 요소를 제거
-
+        $("#btn1").on("click", function(){
+            $("div").css("border-bottom", "3px solid red").children("span").css("font-size", "3em");
+            $("div").css("background", "pink").find(".sel").css("color", "red");
+        });
+        $("#btn2").click(function(){
+            $("div").contents().remove("span");
+        });
     });    
     </script>
 </head>

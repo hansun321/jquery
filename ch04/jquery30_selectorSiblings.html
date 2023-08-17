@@ -18,7 +18,8 @@
     <script>
     $(document).ready(function(){
         //클래스가 yw인 요소의 글자색을 짙은 하늘색으로 설정하고, 그 형제들의 글자색은 빨강으로 하며, 그 형제들의 개수를 구하여 p요소의 내부 요소인 u 요소의 텍스트로 출력하라.
-
+        var len = $(".yw").css("color", "deepskyblue").siblings().css("color", "red").length;
+        $("p u").text(len);
     });    
     </script>
 </head>

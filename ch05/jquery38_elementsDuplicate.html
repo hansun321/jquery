@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 38 : 엘리먼트 복제하기</title>
+    <script src="./jquery-1.12.4.js"></script> 
+    <style>
+    .container { clear:both; width:1000px; margin:20px auto; } 
+    .container:after { content:""; display:block; clear:both; }
+    .data { clear: both; }
+    .data:after { content:""; display:block; clear:both; }
+    </style>
+    <script>
+    $(document).ready(function(){
+        //button 요소를 클릭하면, strong요소를 span 요소에 자식으로 추가하고,
+        //em 요소를 복제하여 span 요소에 자식으로 추가
+        $("button").click(function(){
+            //var data = $("strong").clone();
+            //$("span").append(data);
+            $("span").append($("strong"));
+            $("em").clone.appendTo($("span"));
+        })
+        //append, prepend, appendTo, prependTo, before, after, insertBefore, insertAfter, Wrap,
+        //등의 요소를 추가하는 메소드는 탐색하여 추가할 경우 이동된다.
+        //이러한 경우 복제하고, 싶은 경우는 먼저 clone()을 활용하여 복제하면 된다.
+    });    
+    </script>
+</head>
+<body>
+    <section class="container">
+        <h1>엘리먼트 복제 메소드 - clone()</h1>
+        <article class="data">
+            <button>복제</button>   
+            <strong> 김 </strong>
+            <em> 기태 </em>
+            <span> 세상에서 제일 좋아하는 사람 : </span>
+            <span> 세상에서 제일 미워할 수 없는 사람 : </span>
+        </article>
+    </section><br><hr><br>
+    <div class="indata1">데이터1</div>
+</body>
+</html>
