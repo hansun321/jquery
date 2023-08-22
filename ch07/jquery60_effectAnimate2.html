@@ -35,28 +35,51 @@
     </style>
     <script>
     $(document).ready(function(){
-        var wd;
-        var len;
-        var intv = setInterval(function(){
-            
-        })
-
+        var wd = $("#visual").width();
+        var len = $(".img_box a").length;
+        var intv = setInterval(function(){ nextAni(); }, 3500);
         $(".img_box a").each(function(index){
             $(this).find(".num").text(index+1);
         });
 
         $("#btn_box .left").click(function(){
-
+            clearInterval(intv);
+            nextAni();
+            intv = setInterval(function(){ nextAni(); }, 3500);
         });
 
         $("#btn_box .right").click(function(){
-
+            clearInterval(intv);
+            prevAni();
+            intv = setInterval(function(){ nextAni(); }, 3500);
         });
 
+        function nextAni (){
+            $(".img_box").not(":animated").animate({"margin-left":-wd+"px"}, 500, function(){
+                $(".img_box a").eq(0).appendTo($(".img_box"));
+                $(".img_box").css("margin-left","0px");
+            });
+        }
 
+        function prevAni(){
+            $(".img_box a").eq(len-1).prependTo($(".img_box"));
+            $(".img_box").css("margin-left", -wd+"px");
+            $(".img_box").not(":animated").animate({"margin-left":"0px"}, 500);
+        }
 
+        $("#num_box").text("■");
 
-
+        var sw = true;
+        $("#num_box").click(function(){
+            if(sw){
+                $(this).text("▶");
+                clearInterval(intv);
+            } else {
+                $(this).text("■");
+                intv = setInterval(function(){ nextAni(); }, 3500);
+            }
+            sw = !sw;
+        });
     });
     </script>
 </head>
